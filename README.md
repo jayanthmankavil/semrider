@@ -38,3 +38,11 @@
   - Now run the flask server program, with `python serv/server.py`
   - If the program successfully runs, you should see text of any site you visited being displayed as the output of previous step
   - Now if you search in semrider plugin, it should return you results
+
+#### Data (note all - to be replaced with _ in filenames)
+1. data/eval-100-samples.csv      : 100 urls from 10 categories with phrases to match
+                                    categories like llm-blog, tech blog etc. Used to check accuracy across categ
+2. data/confsbl-hn-url-gt-100.csv : These provide consfuable data to confuse the 15k YC news, to confuse above 100
+3. res/meta-train-v02.pkl         : meta data for top 1k of confsbl + 100 evals
+4. res/embed-train-v02.pkl        : embed data for top 1k of confsbl + 100 evals
+5. You can use the embed-train/meta-train as prod as well, just make a copy and call it embed-prod-v02 and meta-prod-v02.pkl

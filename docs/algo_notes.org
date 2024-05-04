@@ -14,7 +14,7 @@
  # Train File  : {sites, embeddings}
  # Test  File  : {[site, phrase, topic], embeddings} TODO: Make inner array ordered dict if needed
  # Issues1: how to handle chunked embeddings etc
-** Design 2: Handles chunkced data, indexes keep track of of all chuncks for a url and rev map to find url of embd
+** Design 2: Handles chunked data, indexes keep track of of all chuncks for a url and rev map to find url of embd
  # Train File2 : mapurl = {fwd: {url, [indexes]}, , embeddings = []
  # Test  File2 : meta = {site:[phrase, topic]}, mapurl = { fwd:{url:[indexes]}, rev:{index:url}}, embeddings = []
  # Issue 1: Too many data files to be persisted, how to handle train/test/prod etc

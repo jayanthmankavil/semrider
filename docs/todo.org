@@ -33,18 +33,19 @@
 **** [ ] v0.0.3: SR: Datetime handle (first-task)
 ***** [ ] v0.0.3: UI: Send datetime as well, handle same in BE
 ***** [ ] v0.0.x: SR: Store datetime and return with datetime
+*** [ ] v0.0.3: SW: Release plan
+**** [ ] v0.0.3: SW: Chrome Plugin + python package (autoinstall on linux)
+**** [ ] v0.0.3: SW: Chrome Plugin + briefcase app
+**** [ ] v0.0.3: SW: Simple to install plugin + pip like install wheel file or share executable
 *** [x] v0.0.3: AL: Error Categorization: Top 5 is 90%, 100 GT, 1000 Confusables, so paused
 **** [x] v0.0.3: AL: Metrics: Top 5 Errors, Multicategory error
 **** [ ] v0.0.3: AL: Error characterization for 100 test urls
 ** v0.0.4: Export History, Experimental Other Sources, Experimental Fast HN
+*** [ ] v0.0.4: UI: Only save read text data
+*** [ ] v0.0.4: UI: Move from popup to a full page plugin with button for export history
 *** [ ] v0.0.4: AL: Improve 'find' speed further, should respond E2E in 200-300ms
 *** [ ] v0.0.4: AL: Improve 'index' speed further, now takes 10hrs for 1000 urls
 *** [ ] v0.0.4: AL: Improve 'index' space requirement, now takes 100MB for 20MB text
-*** [ ] v0.0.4: UI: Move from popup to a full page plugin with button for export history
-*** [ ] v0.0.4: BE: Use pydantic across board for better data usage (TBD: Decide if necessary)
-*** [ ] v0.0.4: PD: Show Browsing Clusters: Showcase clusters of what all you see
-**** [ ] v0.0.4: PD: Basic cluster view
-**** [ ] v0.0.4: PD: Show timeline view
 *** [ ] v0.0.4: PD: Tabmanger Export (optional)
 **** [ ] v0.0.4: UI: TabManager Export Button + Tab manager export to API
 *** [ ] v0.0.4: PD: HistoryExport Button + History export to API
@@ -53,8 +54,12 @@
 *** [ ] v0.0.4: PD: Manage Other Sources (Experimental)
 **** [ ] v0.0.4: EX: Export Google Drive or Confluence (check out how llamaindex etc manages this)
 *** [ ] v0.0.4: PD: HN Scalable (upto 100 req/s on single server, Experimental)
-**** [ ] v0.0.4: EX: Scalable version exploration
+**** [ ] v0.0.4: EX: Scalable version exploration (150 new pages)
+*** [ ] v0.0.4: PD: Show Browsing Clusters: Showcase clusters of what all you see
+**** [ ] v0.0.4: PD: Basic cluster view
+**** [ ] v0.0.4: PD: Show timeline view
 ** Bucket List
+*** [ ] v0.0.4: BE: Use pydantic across board for better data usage (TBD: Decide if necessary)
 *** [ ] v0.0.x: PD: Privacy, mark out private communications separately
 *** [ ] v0.0.x: PD: Ability to 
 *** [ ] v0.0.x: PD: Ability to group website from clusters and make notes easily (use summary to provide grouping)
