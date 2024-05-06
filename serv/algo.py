@@ -26,6 +26,9 @@ class S2PSimilarity:
         self.meta_data = {}
         self.rev_data = {}
 
+    def get_size(self):
+      return len(self.meta_data.keys())
+
     def load_data(self, embed_file, meta_file):
         ''' Load previous data
             Returns

@@ -33,8 +33,11 @@ def insert_cold_data(cold_file, label='prod'):
 
 
 def update(url, text, label='prod'):
+    print(url[:50], 'is processing')
     meta_data_value = {'label':'prod', 'emd_indxs':[]}
     sim_sys.insert_largetext(url, meta_data_value, text) # Load new corpus of data
+    print(url[:50], 'is processed')
+    print('Size is :', sim_sys.get_size())
     return True
 
 
