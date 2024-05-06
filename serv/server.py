@@ -14,7 +14,6 @@ meta_file = "serv/res/meta_prod_v02_rc.pkl"
 sm.load_data(embed_file, meta_file)
 
 # For task_queue
-#pool = Pool() (Using thread pool or process pool)
 executor = ThreadPoolExecutor(max_workers=1)
 tasks = {}
 
@@ -39,12 +38,6 @@ def update():
 
     # TODO: Add task status if needed
     # tasks[task_id] = task
-
-    # Old task mechanism using process, dead-code
-    ##pool.apply_async(sm.update, args=(site, received_text,))
-    ##heavy_task = Process(target=sm.update, args=(site, received_text,), daemon=True)
-    ##heavy_task.start()
-    ##if sm.update(site, received_text):
 
     print('Size process ', site[:40] , sm.sim_sys.get_size())
     return jsonify({'status': 'success'})

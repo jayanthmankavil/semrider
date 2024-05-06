@@ -40,7 +40,12 @@
 *** [x] v0.0.3: AL: Error Categorization: Top 5 is 90%, 100 GT, 1000 Confusables, so paused
 **** [x] v0.0.3: AL: Metrics: Top 5 Errors, Multicategory error
 **** [ ] v0.0.3: AL: Error characterization for 100 test urls
+*** [x] v0.0.3: SW: UI slow: needs async indexing
+*** [.] v0.0.3: SW: Issue with index not found (debug the same)
+**** [x] Issue not there in clean meta/embed data (like 1000k training set)
+**** [ ] Might be issue when exit happens uncleanly
 ** v0.0.4: Export History, Experimental Other Sources, Experimental Fast HN
+*** [ ] v0.0.4: UI: Create FF plugin
 *** [ ] v0.0.4: UI: Only save read text data
 *** [ ] v0.0.4: UI: Move from popup to a full page plugin with button for export history
 *** [ ] v0.0.4: AL: Improve 'find' speed further, should respond E2E in 200-300ms
