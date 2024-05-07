@@ -179,7 +179,7 @@ class S2PSimilarity:
         top_k_urls = []
         for idx, item in enumerate(top_idxs):
             print(str(idx) + " " + str(top_scores[idx]) + " " + self.rev_data[item])
-            top_k_urls.append((self.rev_data[item], ''))       # TODO: Update the '' with actual title
+            top_k_urls.append((self.rev_data[item], self.meta_data[self.rev_data[item]]))       # TODO: Update the '' with actual title
  
         #top_idxs = np.argsort(scores.flatten())
         return top_idxs, top_k_urls
