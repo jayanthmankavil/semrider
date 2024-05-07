@@ -64,10 +64,14 @@ class S2PSimilarity:
         if not (embed_file and meta_file):
             return False
 
-        if embed_file: pkl.dump(self.embed_data, open(embed_file, "wb"))
+        if embed_file and len(self.embed_data) != 0: 
+            with open(embed_file, 'wb') as file:
+                pkl.dump(self.embed_data, file)
         else: status = False
         
-        if meta_file: pkl.dump(self.meta_data, open(meta_file, "wb"))
+        if meta_file and len(self.meta_data) != 0:
+            with open(meta_file, 'wb') as file:
+                pkl.dump(self.meta_data, file)
         else: status = False
 
         return status
