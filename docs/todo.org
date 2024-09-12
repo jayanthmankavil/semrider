@@ -28,8 +28,8 @@
 **** [x] v0.0.3: SR: AtExit does not seem to work if you trap signals (first-task)
           https://stackoverflow.com/questions/40866576/run-atexit-when-python-process-is-killed)
 **** [x] v0.0.3: SR: Store and send back page title (first-task)
-***** [ ] v0.0.3: BE: Capture page title & store in database, update API to return same
-***** [ ] v0.0.3: UI: Show page title, truncate when too large and show ...
+***** [x] v0.0.3: BE: Capture page title & store in database, update API to return same
+***** [x] v0.0.3: UI: Show page title, truncate when too large and show ...
 **** [ ] v0.0.3: SR: Datetime handle (first-task)
 ***** [ ] v0.0.3: UI: Send datetime as well, handle same in BE
 ***** [ ] v0.0.x: SR: Store datetime and return with datetime
