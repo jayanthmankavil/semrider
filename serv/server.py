@@ -28,13 +28,15 @@ def dump_files(*args):
 def update():
     site = request.json.get('site')
     received_text = request.json.get('text')
+    title = request.json.get('title')
+    print(f'Received Title: {title}')
     #print(f'Received Data: {received_text}')
     #print(f'Received site: {site}')
     print('Size before ', site[:40] , sm.sim_sys.get_size())
     
     # Task Management
     task_id = str(uuid.uuid4())
-    task = executor.submit(run_task, task_id, site, received_text)
+    task = executor.submit(run_task, task_id, site, received_text, title)
 
     # TODO: Add task status if needed
     # tasks[task_id] = task
@@ -58,9 +60,9 @@ def update():
 
 
 
-def run_task(task_id, site, received_text):
+def run_task(task_id, site, received_text, title):
   print("RUN TASK: ", site, received_text[:10])
-  sm.update(site, received_text)
+  sm.update(site, received_text, title)
   return
 
 
@@ -69,7 +71,7 @@ def search():
     question = request.json.get('question')
     number_of_results = int(request.json.get('number_of_results'))
     results = sm.find(question, number_of_results)
-    results = {'top_sites': [u for u,t in results], 'top_context': [t for u,t in results]}
+    results = {'top_sites': [u for u,t,c in results], 'top_titles': [t for u,t,c in results], 'top_context': [c for u,t,c in results]}
     return jsonify(results)
 
 

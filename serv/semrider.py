@@ -32,9 +32,11 @@ def insert_cold_data(cold_file, label='prod'):
         sim_sys.insert_largetext(url, meta_data_value, text) # Load new corpus of data
 
 
-def update(url, text, label='prod'):
+def update(url, text, title=None, label='prod'):
     print(url[:50], 'is processing')
     meta_data_value = {'label':'prod', 'emd_indxs':[]}
+    if title:
+        meta_data_value['title'] = title
     sim_sys.insert_largetext(url, meta_data_value, text) # Load new corpus of data
     print(url[:50], 'is processed')
     print('Size is :', sim_sys.get_size())
@@ -44,8 +46,12 @@ def update(url, text, label='prod'):
 def find(test_kwords, k_val=5):
     embd_data = sim_sys.get_embedding(test_kwords)
     test_pred_data, top_k_urls = sim_sys.find_phrase(embd_data, k_val=k_val)
-    #print(res['top_sites'], res['top_contexts'])
-    return top_k_urls
+    print("Top K URLs:", top_k_urls)
+    # Unpack url and context, and get title from sim_sys.get_title
+    top_k_results = [(url, title, context) for url, title, context in top_k_urls]
+
+    return top_k_results  # Return top_k_results instead of top_k_urls
+
 
 if __name__ == "__main__":
     # Basic Test Sequence for Semrider

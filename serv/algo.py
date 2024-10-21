@@ -125,12 +125,13 @@ class S2PSimilarity:
         return chunks
 
 
-    def insert_largetext(self, url, meta_data_value, text):
+    def insert_largetext(self, url, meta_data_value, text, title=None):
         ''' Given a large text, chunk it and insert it
             chunk : Text that is broken to pieces
             chunke: A chunke that is embedded 
             Input:
              - text: parsed text
+             - title: Title of the page (optional)
              - meta_data_value = One row of metadata, each is url -> value
               - value same as meta_data, see init
             Return
@@ -140,7 +141,10 @@ class S2PSimilarity:
              - meta_data : Updated meta data, corresponding to current url
                - so this will be bunch of url -> embed1, url -> embed2 etc, since one url's text is chunked
         '''
-        
+
+        if title:
+          meta_data_value['title'] = title
+
         # Check if url is already inserted
         #if url in self.meta_data:
         #    return False
@@ -174,12 +178,18 @@ class S2PSimilarity:
             return      : Tuples of site, index in embedding, sim_score
         '''
         scores = self.embed_data.dot(phrase_embed.T)
+        #print(f"scores: {scores}")
         top_idxs = np.argsort(-np.max(scores, axis=1))[:k_val] #Get max of all chunks in kword & neg for descending
+        #print(f"Top indices: {top_idxs}")
         top_scores = np.sort(-np.max(scores, axis=1))[:k_val]
         top_k_urls = []
         for idx, item in enumerate(top_idxs):
-            print(str(idx) + " " + str(top_scores[idx]) + " " + self.rev_data[item])
-            top_k_urls.append((self.rev_data[item], ''))       # TODO: Update the '' with actual title
+          print("rev_data keys:", list(self.rev_data.keys()))
+          url = self.rev_data[item]
+          title = self.get_title(url)
+          context = self.meta_data[url].get('context', 'No context available')
+          print(str(idx) + " " + str(top_scores[idx]) + " " + url)
+          top_k_urls.append((url, title, context))      # TODO: Update the '' with actual title
  
         #top_idxs = np.argsort(scores.flatten())
         return top_idxs, top_k_urls
@@ -191,3 +201,10 @@ class S2PSimilarity:
             test_embed_data = sim_evltr.get_embedding(test)
         top_idxs, top_urls = map(test_embed_data, sim_valtr.find_phrase(x, k_val=5))
         return top_urls
+    
+    def get_title(self, url):
+        ''' Retrieve the title for a given URL '''
+        if url in self.meta_data and 'title' in self.meta_data[url]:
+            return self.meta_data[url]['title']
+        return "Title not available"
+

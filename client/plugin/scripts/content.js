@@ -53,13 +53,13 @@ console.log(text);
 
 const textData = document.body.innerText;
 const siteURL = document.location.href;
-
-console.log(textData);
-
+const siteTitle = document.title;
+//console.log(textData);
+console.log("Page Title:", siteTitle);
 fetch('http://localhost:5000/update', {
   method: 'POST',
   headers: { 'Content-Type': 'application/json' },
-  body: JSON.stringify({ 'text':textData, 'site':siteURL })
+  body: JSON.stringify({ 'text':textData, 'site':siteURL, 'title': siteTitle })
 })
   .then(response => response.json())
   .then(data => console.log(data))
